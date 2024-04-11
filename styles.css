@@ -1,0 +1,75 @@
+main {
+    font-family: 'Roboto Mono', monospace; /* Set the font family to Roboto Mono */
+    position: relative; /* Set the position of the main container */
+}
+
+.circle {
+    border-radius: 50%; /* Make the container a circle */
+    width: 120px; /* Set the width of the circle */
+    height: 120px; /* Set the height of the circle */
+    border: 1px solid #fff; /* Set border properties */
+    color: #fff; /* Set text color */
+    margin: 50px auto; /* Center the circle horizontally with margin */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    flex-direction: column; /* Set column layout */
+}
+
+.circle::before {
+    content: ''; /* Empty content to create the outside circle */
+    border-radius: 50%; /* Make it a circle */
+    z-index: -1; /* Set z-index to position it behind the circle */
+    position: absolute; /* Position it absolutely */
+    width: 160px; /* Set width */
+    height: 160px; /* Set height */
+    left: calc(50% - 80px); /* Center horizontally */
+    top: calc(50% - 80px); /* Center vertically */
+    background-color: #1d1d1d; /* Set background color */
+}
+
+.seconds-sphere {
+    width: 20px; /* Set width */
+    height: 20px; /* Set height */
+    border-radius: 50%; /* Make it a circle */
+    background-color: #fff; /* Set background color */
+    position: absolute; /* Position it absolutely */
+    left: calc(50% - 10px); /* Center horizontally */
+    top: calc(50% - 10px); /* Center vertically */
+    animation: rotacion 60s linear infinite; /* Set rotation animation */
+    animation-play-state: paused; /* Initially paused */
+}
+
+@keyframes rotacion {
+    from { transform: rotate(-90deg) translateX(60px); } /* Initial rotation and translation */
+    to { transform: rotate(270deg) translateX(60px); } /* Final rotation and translation */
+}
+
+.buttons {
+    margin-top: 10px; /* Add space on top */
+    display: inline-flex; /* Use inline flexbox for layout */
+}
+
+.paused {
+    height: 10px; /* Set height */
+    border-width: 5px 0 5px 10px; /* Set border width */
+    cursor: pointer; /* Set cursor style */
+    box-sizing: border-box; /* Include border in element's total width and height */
+    margin-left: 15px; /* Add space on the left */
+    border-color: transparent transparent transparent #fff; /* Set border color */
+    transition: 100ms all ease; /* Smooth transition */
+    will-change: border-width; /* Hint to browser for optimization */
+    border-style: solid; /* Set border style */
+}
+
+.running {
+    border-style: double; /* Set double border style */
+    border-width: 0 0 0 10px; /* Set border width */
+}
+
+.stop {
+    background-color: #fff; /* Set background color */
+    height: 10px; /* Set height */
+    width: 10px; /* Set width */
+    cursor: pointer; /* Set cursor style */
+}
